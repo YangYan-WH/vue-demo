@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
-    <title>Document</title>
+    <title>Slider</title>
     <style>
         .slides{
             width: 300px;
@@ -29,12 +29,15 @@
         let view = new Vue({
             el: '#app',
             data: {
-                transformValue: ''
+                transformValue: '',
+                imgs:['/x','/y','/z']
             },
             template: `
             <div>
                 <div class='window'>
-                    <div class='slides' v-bind:style='{transform:transformValue}'></div>
+                    <div class='slides' v-bind:style='{transform:transformValue}'>
+                        <img v-for='url in imgs' v-bind:src='url'>
+                    </div>
                 </div>
                 <button v-on:click='go(0)'>1</button>
                 <button v-on:click='go(1)'>2</button>
